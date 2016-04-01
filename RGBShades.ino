@@ -131,7 +131,8 @@ functionList effectList[] = {threeSine,
                              scrollTextFive,
                              scrollTextSix,
                              PizzaTime,
-                             BaseballEyes
+                             BaseballEyes,
+                             aprilFools
                             };
 
 const byte numEffects = (sizeof(effectList)/sizeof(effectList[0]));

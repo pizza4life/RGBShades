@@ -227,6 +227,40 @@ void confetti() {
 
 }
 
+void AprilFoolsFireworks() {
+  for (byte x = 0; x < kMatrixWidth; x++){
+    for (byte y = 0; y < kMatrixHeight; y++){
+      leds[XY(x, y)] = CRGB::Black;
+    }
+  }
+  leds[XY(3, 4)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(12, 4)] = CHSV(cycleHue, 255, random8(5) * 63);
+  delay(200);
+  leds[XY(3, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(11, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(12, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
+  delay(200);
+  leds[XY(4, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(2, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(13, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(4, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
+  delay(200);
+  leds[XY(4, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(11, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(5, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(13, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
+  delay(200);
+  leds[XY(1, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(3, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(4, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(5, 0)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(10, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(10, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(13, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  leds[XY(14, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
+  delay(500);
+  scrollTextEight(1);
+}
 
 // Draw slanting bars scrolling across the array, uses current hue
 void slantBars() {
@@ -265,7 +299,7 @@ void scrollText(byte message, byte style, CRGB fgColor, CRGB bgColor) {
   // startup tasks
   if (effectInit == false) {
     effectInit = true;
-    effectDelay = 55; //SCROLL TEXT SPEED
+    effectDelay = 63; //SCROLL TEXT SPEED
     currentMessageChar = 0;
     currentCharColumn = 0;
     selectFlashString(message);
@@ -341,6 +375,20 @@ void scrollTextFive() {
 }
 void scrollTextSix() {
   scrollText(6, NORMAL, CRGB::Green, CRGB::Black);
+}
+void scrollTextSeven(int AprilFoolsBreak) {
+  scrollText(7, RAINBOW, 0, CRGB(0,0,5));
+  if(AprilFoolsBreak == 1){
+    delay(1500);
+   AprilFoolsFireworks();
+  }
+}
+void scrollTextEight(int AprilFoolsBreak) {
+  scrollText(8, NORMAL, CRGB(100,0,100), CRGB::Black);
+  if(AprilFoolsBreak == 1){
+    delay(1000);
+     aprilFools();
+  }
 }
 
 void PizzaTime() {
@@ -460,4 +508,9 @@ void BaseballEyes() {
   leds[XY(11, 3)] = CRGB(100,100,100);
   leds[XY(13, 3)] = CRGB(100,100,100);
 }
+
+void aprilFools() {
+  scrollTextSeven(1);
+}
+
 
