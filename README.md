@@ -3,10 +3,12 @@ You are the only person to go to my github repo, pizza4life. You are probably he
 
 The master file is RGBShades-master.ino, and everything is necessary to have in your working directory. 
 
-Layout:
+Layout
+======
 The glasses are organized in a grid fashion, with most lcd displays, and they work on a coordinate grid (obviously starting with 0) A great display of this is on XYMap, on lines 32-40
 
-Effects:
+Effects
+=======
 In the effects sketch, there are a lot of 'for' loops that basically just set the RGB's to a constantly changing hue. The function to change a color is essentially:
 leds[XY(x, y)] = CRGB(Red,Green,Blue);
 with Red being your red value, Green to the green value, and Blue as the blue value.
@@ -20,7 +22,8 @@ When you make an effect, it is a void function that you have to start with these
   
   you can then proceed to map whatever RGB's you want. Note that previous effects will remain in RGB's you do not change, so it is best to do a 'for' loop to wipe everything with 'leds[XY(x, y)] = CRGB(0,0,0);'
   
-  Uploading:
+  Uploading
+  =========
   a great link for setup, scroll down to the programming section
   
   http://docs.macetech.com/doku.php/rgb_shades
