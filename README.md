@@ -21,6 +21,15 @@ When you make an effect, it is a void function that you have to start with these
   you can then proceed to map whatever RGB's you want. Note that previous effects will remain in RGB's you do not change, so it is best to do a 'for' loop to wipe everything with 'leds[XY(x, y)] = CRGB(0,0,0);'
   
   Uploading:
+  a great link for setup, scroll down to the programming section
+  
+  http://docs.macetech.com/doku.php/rgb_shades
+  
+  You need some libraries as well, the FastLED Library: 
+
+"The RGB Shades code uses the FastLED library, which you will need to download from GitHub (https://github.com/FastLED/FastLED). On the right side of the page, click the Download ZIP link. Uncompress the ZIP file and rename the “FastLED-master” folder to just “FastLED” and copy the entire folder to your Arduino libraries folder (usually found in the Arduino sketch folder…create a “libraries” folder there if one does not exist)."
+
+
   "This version has the standard Arduino bootloader. R9 and R10 near the control buttons will be present.
 Select the “Arduino Pro or Pro Mini” option. Then, go back into the Tools menu and find the Processor option and select “ATmega328 (5V, 16MHz)”."
 
