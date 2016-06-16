@@ -91,7 +91,7 @@
 
 // Runs one time at the start of the program (power up or reset)
 void setup() {
-const int micReading;
+int micReading;
 int micRGB;
 int mic0;
 int mic1;

@@ -409,6 +409,13 @@ void micLevels() {
     effectInit = true;
     effectDelay = 5;
   }
+
+  for (byte PizzaTimex = 0; PizzaTimex < kMatrixWidth; PizzaTimex++) {
+    for (byte PizzaTimey = 0; PizzaTimey < kMatrixHeight; PizzaTimey++) {
+      leds[XY(PizzaTimex, PizzaTimey)] = CRGB(0, 0, 0);
+    }
+  }
+  
   int micReading;
   int micRGB;
   int micPin;
@@ -429,13 +436,50 @@ void micLevels() {
   mic1 = mic0;
   mic0 = micRGB;
 
-  for (int micFor = 0; micFor < 4; micFor++) {
+for (int i = 0; i < 15; i++) {
+leds[XY(0, i)] = CRGB(0, 0, 0);
+}
 
-    for (int micFor2 = 0; micFor2 < mic[micFor]; micFor2++) {
-      leds[XY(micFor2, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
-    }
+for (int micFor = 0; micFor < mic0; micFor++) {
+      leds[XY(0, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
+ }
 
-  }
+
+ for (int i = 0; i < 15; i++) {
+leds[XY(1, i)] = CRGB(0, 0, 0);
+}
+
+for (int micFor = 0; micFor < mic1; micFor++) {
+      leds[XY(1, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
+ }
+
+for (int i = 0; i < 15; i++) {
+leds[XY(2, i)] = CRGB(0, 0, 0);
+}
+
+for (int micFor = 0; micFor < mic2; micFor++) {
+      leds[XY(2, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
+ }
+
+
+for (int i = 0; i < 15; i++) {
+leds[XY(3, i)] = CRGB(0, 0, 0);
+}
+
+for (int micFor = 0; micFor < mic3; micFor++) {
+      leds[XY(3, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
+ }
+
+for (int i = 0; i < 15; i++) {
+leds[XY(4, i)] = CRGB(0, 0, 0);
+}
+
+for (int micFor = 0; micFor < mic4; micFor++) {
+      leds[XY(4, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
+ }
+
+ 
+
 }
 void BaseballEyes() {
 
