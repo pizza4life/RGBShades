@@ -1,4 +1,6 @@
-Mr Paine -{
+Mr Paine
+========
+-{
 You are the only person to go to my github repo, pizza4life. You are probably here to try and code the RGB Glasses. Everything inside this curly bracket (inside the readme) is placed here by me to explain a bit of this code.
 
 The master file is RGBShades-master.ino, and everything is necessary to have in your working directory. 
@@ -23,7 +25,7 @@ When you make an effect, it is a void function that you have to start with these
   you can then proceed to map whatever RGB's you want. Note that previous effects will remain in RGB's you do not change, so it is best to do a 'for' loop to wipe everything with 'leds[XY(x, y)] = CRGB(0,0,0);'
   
   Uploading
-  =======
+  ========
   a great link for setup, scroll down to the programming section
   
   http://docs.macetech.com/doku.php/rgb_shades
