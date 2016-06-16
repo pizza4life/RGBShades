@@ -1,7 +1,7 @@
 Mr Paine
 ========
--{
-You are the only person to go to my github repo, pizza4life. You are probably here to try and code the RGB Glasses. Everything inside this curly bracket (inside the readme) is placed here by me to explain a bit of this code.
+
+You are the only person to go to my github repo, pizza4life. You are probably here to try and code the RGB Glasses. Everything inside this readme except for the RGBShades section was placed here by me to explain a bit of this code.
 
 The master file is RGBShades-master.ino, and everything is necessary to have in your working directory. 
 
