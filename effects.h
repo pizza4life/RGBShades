@@ -227,6 +227,7 @@ void confetti() {
 
 }
 
+
 // Draw slanting bars scrolling across the array, uses current hue
 void slantBars() {
 
@@ -264,7 +265,7 @@ void scrollText(byte message, byte style, CRGB fgColor, CRGB bgColor) {
   // startup tasks
   if (effectInit == false) {
     effectInit = true;
-    effectDelay = 63; //SCROLL TEXT SPEED
+    effectDelay = 55; //SCROLL TEXT SPEED
     currentMessageChar = 0;
     currentCharColumn = 0;
     selectFlashString(message);
@@ -286,7 +287,7 @@ void scrollText(byte message, byte style, CRGB fgColor, CRGB bgColor) {
     for (byte y = 0; y < 5; y++) { // characters are 5 pixels tall
       if (bitRead(bitBuffer[(bitBufferPointer + x) % kMatrixWidth], y) == 1) {
         if (style == RAINBOW) {
-          pixelColor = ColorFromPalette(currentPalette, paletteCycle+y*16, 255);
+          pixelColor = ColorFromPalette(currentPalette, paletteCycle + y * 16, 255);
         } else {
           pixelColor = fgColor;
         }
@@ -324,7 +325,7 @@ void scrollTextOne() {
 }
 
 void scrollTextTwo() {
-  scrollText(2, NORMAL, CRGB::Green, CRGB(0,0,8));
+  scrollText(2, NORMAL, CRGB::Green, CRGB(0, 0, 8));
 }
 
 void scrollTextThree() {
@@ -336,16 +337,10 @@ void scrollTextFour() {
 }
 
 void scrollTextFive() {
-  scrollText(5, NORMAL, CRGB(100,100,0), CRGB::Black);
+  scrollText(5, NORMAL, CRGB(100, 100, 0), CRGB::Black);
 }
 void scrollTextSix() {
   scrollText(6, NORMAL, CRGB::Green, CRGB::Black);
-}
-void scrollTextSeven() {
-  scrollText(7, RAINBOW, 0, CRGB(0,0,5));
-}
-void scrollTextEight() {
-  scrollText(8, NORMAL, CRGB(100,0,100), CRGB::Black);
 }
 
 void PizzaTime() {
@@ -355,58 +350,93 @@ void PizzaTime() {
     effectDelay = 50;
   }
 
-  for (byte PizzaTimex = 0; PizzaTimex < kMatrixWidth; PizzaTimex++){
-    for (byte PizzaTimey = 0; PizzaTimey < kMatrixHeight; PizzaTimey++){
+  for (byte PizzaTimex = 0; PizzaTimex < kMatrixWidth; PizzaTimex++) {
+    for (byte PizzaTimey = 0; PizzaTimey < kMatrixHeight; PizzaTimey++) {
       leds[XY(PizzaTimex, PizzaTimey)] = CHSV(cycleHue, 255, random8(5) * 63);
     }
   }
-  //leds[XY(x, y)] = CRGB
-  leds[XY(2, 0)] = CRGB(95.3,64.3,0);
-  leds[XY(3, 0)] = CRGB(95.3,64.3,0);
-  leds[XY(4, 0)] = CRGB(95.3,64.3,0);
-  leds[XY(11, 0)] = CRGB(95.3,64.3,0);
-  leds[XY(12, 0)] = CRGB(95.3,64.3,0);
-  leds[XY(13, 0)] = CRGB(95.3,64.3,0);
-  leds[XY(1, 1)] = CRGB(95.3,64.3,0);
-  leds[XY(5, 1)] = CRGB(95.3,64.3,0);
-  leds[XY(10, 1)] = CRGB(95.3,64.3,0);
-  leds[XY(14, 1)] = CRGB(95.3,64.3,0);
-  leds[XY(1, 2)] = CRGB(95.3,64.3,0);
-  leds[XY(5, 2)] = CRGB(95.3,64.3,0);
-  leds[XY(10, 2)] = CRGB(95.3,64.3,0);
-  leds[XY(14, 2)] = CRGB(95.3,64.3,0);
-  leds[XY(1, 3)] = CRGB(95.3,64.3,0);
-  leds[XY(5, 3)] = CRGB(95.3,64.3,0);
-  leds[XY(10, 3)] = CRGB(95.3,64.3,0);
-  leds[XY(14, 3)] = CRGB(95.3,64.3,0);
-  leds[XY(2, 4)] = CRGB(95.3,64.3,0);
-  leds[XY(3, 4)] = CRGB(95.3,64.3,0);
-  leds[XY(4, 4)] = CRGB(95.3,64.3,0);
-  leds[XY(11, 4)] = CRGB(95.3,64.3,0);
-  leds[XY(12, 4)] = CRGB(95.3,64.3,0);
-  leds[XY(13, 4)] = CRGB(95.3,64.3,0);
+  //leds[XY(x, y)] = CRGB(Red,Green,Blue);
+  leds[XY(2, 0)] = CRGB(95.3, 64.3, 0);
+  leds[XY(3, 0)] = CRGB(95.3, 64.3, 0);
+  leds[XY(4, 0)] = CRGB(95.3, 64.3, 0);
+  leds[XY(11, 0)] = CRGB(95.3, 64.3, 0);
+  leds[XY(12, 0)] = CRGB(95.3, 64.3, 0);
+  leds[XY(13, 0)] = CRGB(95.3, 64.3, 0);
+  leds[XY(1, 1)] = CRGB(95.3, 64.3, 0);
+  leds[XY(5, 1)] = CRGB(95.3, 64.3, 0);
+  leds[XY(10, 1)] = CRGB(95.3, 64.3, 0);
+  leds[XY(14, 1)] = CRGB(95.3, 64.3, 0);
+  leds[XY(1, 2)] = CRGB(95.3, 64.3, 0);
+  leds[XY(5, 2)] = CRGB(95.3, 64.3, 0);
+  leds[XY(10, 2)] = CRGB(95.3, 64.3, 0);
+  leds[XY(14, 2)] = CRGB(95.3, 64.3, 0);
+  leds[XY(1, 3)] = CRGB(95.3, 64.3, 0);
+  leds[XY(5, 3)] = CRGB(95.3, 64.3, 0);
+  leds[XY(10, 3)] = CRGB(95.3, 64.3, 0);
+  leds[XY(14, 3)] = CRGB(95.3, 64.3, 0);
+  leds[XY(2, 4)] = CRGB(95.3, 64.3, 0);
+  leds[XY(3, 4)] = CRGB(95.3, 64.3, 0);
+  leds[XY(4, 4)] = CRGB(95.3, 64.3, 0);
+  leds[XY(11, 4)] = CRGB(95.3, 64.3, 0);
+  leds[XY(12, 4)] = CRGB(95.3, 64.3, 0);
+  leds[XY(13, 4)] = CRGB(95.3, 64.3, 0);
 
-  leds[XY(2, 1)] = CRGB(100,100,0);
-  leds[XY(4, 1)] = CRGB(100,100,0);
-  leds[XY(2, 2)] = CRGB(100,100,0);
-  leds[XY(3, 2)] = CRGB(100,100,0);
-  leds[XY(3, 3)] = CRGB(100,100,0);
-  leds[XY(4, 3)] = CRGB(100,100,0);
-  leds[XY(11, 1)] = CRGB(100,100,0);
-  leds[XY(13, 1)] = CRGB(100,100,0);
-  leds[XY(11, 2)] = CRGB(100,100,0);
-  leds[XY(12, 2)] = CRGB(100,100,0);
-  leds[XY(13, 2)] = CRGB(100,100,0);
-  leds[XY(12, 3)] = CRGB(100,100,0);
+  leds[XY(2, 1)] = CRGB(100, 100, 0);
+  leds[XY(4, 1)] = CRGB(100, 100, 0);
+  leds[XY(2, 2)] = CRGB(100, 100, 0);
+  leds[XY(3, 2)] = CRGB(100, 100, 0);
+  leds[XY(3, 3)] = CRGB(100, 100, 0);
+  leds[XY(4, 3)] = CRGB(100, 100, 0);
+  leds[XY(11, 1)] = CRGB(100, 100, 0);
+  leds[XY(13, 1)] = CRGB(100, 100, 0);
+  leds[XY(11, 2)] = CRGB(100, 100, 0);
+  leds[XY(12, 2)] = CRGB(100, 100, 0);
+  leds[XY(13, 2)] = CRGB(100, 100, 0);
+  leds[XY(12, 3)] = CRGB(100, 100, 0);
 
-  leds[XY(3, 1)] = CRGB(100,0,0);
-  leds[XY(4, 2)] = CRGB(100,0,0);
-  leds[XY(2, 3)] = CRGB(100,0,0);
-  leds[XY(12, 1)] = CRGB(100,0,0);
-  leds[XY(11, 3)] = CRGB(100,0,0);
-  leds[XY(13, 3)] = CRGB(100,0,0);
+  leds[XY(3, 1)] = CRGB(100, 0, 0);
+  leds[XY(4, 2)] = CRGB(100, 0, 0);
+  leds[XY(2, 3)] = CRGB(100, 0, 0);
+  leds[XY(12, 1)] = CRGB(100, 0, 0);
+  leds[XY(11, 3)] = CRGB(100, 0, 0);
+  leds[XY(13, 3)] = CRGB(100, 0, 0);
 }
 
+void micLevels() {
+
+  // startup tasks
+  if (effectInit == false) {
+    effectInit = true;
+    effectDelay = 5;
+  }
+  int micReading;
+  int micRGB;
+  int micPin;
+  int mic0;
+  int mic1;
+  int mic2;
+  int mic3;
+  int mic4;
+  //int micRGB;\
+
+  //CHSV(cycleHue, 255, random8(5) * 63)
+  //leds[XY(2, 0)] = CRGB(100,100,100);
+  micReading = analogRead(micPin);
+  micRGB = map(micReading, 0, 255, 0, 15);
+  mic4 = mic3;
+  mic3 = mic2;
+  mic2 = mic1;
+  mic1 = mic0;
+  mic0 = micRGB;
+
+  for (int micFor = 0; micFor < 4; micFor++) {
+
+    for (int micFor2 = 0; micFor2 < mic[micFor]; micFor2++) {
+      leds[XY(micFor2, micFor)] = CHSV(cycleHue, 255, random8(5) * 63);
+    }
+
+  }
+}
 void BaseballEyes() {
 
   if (effectInit == false) {
@@ -414,95 +444,55 @@ void BaseballEyes() {
     effectDelay = 50;
   }
 
-  for (byte BaseballEyesx = 0; BaseballEyesx < kMatrixWidth; BaseballEyesx++){
-    for (byte BaseballEyesy = 0; BaseballEyesy < kMatrixHeight; BaseballEyesy++){
+  for (byte BaseballEyesx = 0; BaseballEyesx < kMatrixWidth; BaseballEyesx++) {
+    for (byte BaseballEyesy = 0; BaseballEyesy < kMatrixHeight; BaseballEyesy++) {
       leds[XY(BaseballEyesx, BaseballEyesy)] = CHSV(cycleHue, 255, random8(5) * 63);
     }
   }
 
-  
-  leds[XY(2, 0)] = CRGB(100,100,100);
-  leds[XY(3, 0)] = CRGB(100,100,100);
-  leds[XY(4, 0)] = CRGB(100,0,0);//
-  leds[XY(11, 0)] = CRGB(100,100,100);
-  leds[XY(12, 0)] = CRGB(100,0,0);//
-  leds[XY(13, 0)] = CRGB(100,100,100);
-  leds[XY(1, 1)] = CRGB(100,0,0);//
-  leds[XY(5, 1)] = CRGB(100,0,0);//
-  leds[XY(10, 1)] = CRGB(100,100,100);
-  leds[XY(14, 1)] = CRGB(100,100,100);
-  leds[XY(1, 2)] = CRGB(100,100,100);
-  leds[XY(5, 2)] = CRGB(100,0,0);//
-  leds[XY(10, 2)] = CRGB(100,100,100);
-  leds[XY(14, 2)] = CRGB(100,0,0);//
-  leds[XY(1, 3)] = CRGB(100,100,100);
-  leds[XY(5, 3)] = CRGB(100,100,100);
-  leds[XY(10, 3)] = CRGB(100,0,0);//
-  leds[XY(14, 3)] = CRGB(100,100,100);
-  leds[XY(2, 4)] = CRGB(100,0,0);//
-  leds[XY(3, 4)] = CRGB(100,100,100);
-  leds[XY(4, 4)] = CRGB(100,100,100);
-  leds[XY(11, 4)] = CRGB(100,0,0);//
-  leds[XY(12, 4)] = CRGB(100,100,100);
-  leds[XY(13, 4)] = CRGB(100,100,100);
 
-  leds[XY(2, 1)] = CRGB(100,0,0);//
-  leds[XY(4, 1)] = CRGB(100,100,100);
-  leds[XY(2, 2)] = CRGB(100,100,100);
-  leds[XY(3, 2)] = CRGB(100,0,0);//
-  leds[XY(3, 3)] = CRGB(100,0,0);//
-  leds[XY(4, 3)] = CRGB(100,100,100);
-  leds[XY(11, 1)] = CRGB(100,100,100);
-  leds[XY(13, 1)] = CRGB(100,100,100);
-  leds[XY(11, 2)] = CRGB(100,100,100);
-  leds[XY(12, 2)] = CRGB(100,100,100);
-  leds[XY(13, 2)] = CRGB(100,0,0);//
-  leds[XY(12, 3)] = CRGB(100,100,100);
-  leds[XY(3, 1)] = CRGB(100,100,100);
-  leds[XY(4, 2)] = CRGB(100,100,100);
-  leds[XY(2, 3)] = CRGB(100,100,100);
-  leds[XY(12, 1)] = CRGB(100,0,0);//
-  leds[XY(11, 3)] = CRGB(100,100,100);
-  leds[XY(13, 3)] = CRGB(100,100,100);
+  leds[XY(2, 0)] = CRGB(100, 100, 100);
+  leds[XY(3, 0)] = CRGB(100, 100, 100);
+  leds[XY(4, 0)] = CRGB(100, 0, 0); //
+  leds[XY(11, 0)] = CRGB(100, 100, 100);
+  leds[XY(12, 0)] = CRGB(100, 0, 0); //
+  leds[XY(13, 0)] = CRGB(100, 100, 100);
+  leds[XY(1, 1)] = CRGB(100, 0, 0); //
+  leds[XY(5, 1)] = CRGB(100, 0, 0); //
+  leds[XY(10, 1)] = CRGB(100, 100, 100);
+  leds[XY(14, 1)] = CRGB(100, 100, 100);
+  leds[XY(1, 2)] = CRGB(100, 100, 100);
+  leds[XY(5, 2)] = CRGB(100, 0, 0); //
+  leds[XY(10, 2)] = CRGB(100, 100, 100);
+  leds[XY(14, 2)] = CRGB(100, 0, 0); //
+  leds[XY(1, 3)] = CRGB(100, 100, 100);
+  leds[XY(5, 3)] = CRGB(100, 100, 100);
+  leds[XY(10, 3)] = CRGB(100, 0, 0); //
+  leds[XY(14, 3)] = CRGB(100, 100, 100);
+  leds[XY(2, 4)] = CRGB(100, 0, 0); //
+  leds[XY(3, 4)] = CRGB(100, 100, 100);
+  leds[XY(4, 4)] = CRGB(100, 100, 100);
+  leds[XY(11, 4)] = CRGB(100, 0, 0); //
+  leds[XY(12, 4)] = CRGB(100, 100, 100);
+  leds[XY(13, 4)] = CRGB(100, 100, 100);
+
+  leds[XY(2, 1)] = CRGB(100, 0, 0); //
+  leds[XY(4, 1)] = CRGB(100, 100, 100);
+  leds[XY(2, 2)] = CRGB(100, 100, 100);
+  leds[XY(3, 2)] = CRGB(100, 0, 0); //
+  leds[XY(3, 3)] = CRGB(100, 0, 0); //
+  leds[XY(4, 3)] = CRGB(100, 100, 100);
+  leds[XY(11, 1)] = CRGB(100, 100, 100);
+  leds[XY(13, 1)] = CRGB(100, 100, 100);
+  leds[XY(11, 2)] = CRGB(100, 100, 100);
+  leds[XY(12, 2)] = CRGB(100, 100, 100);
+  leds[XY(13, 2)] = CRGB(100, 0, 0); //
+  leds[XY(12, 3)] = CRGB(100, 100, 100);
+  leds[XY(3, 1)] = CRGB(100, 100, 100);
+  leds[XY(4, 2)] = CRGB(100, 100, 100);
+  leds[XY(2, 3)] = CRGB(100, 100, 100);
+  leds[XY(12, 1)] = CRGB(100, 0, 0); //
+  leds[XY(11, 3)] = CRGB(100, 100, 100);
+  leds[XY(13, 3)] = CRGB(100, 100, 100);
 }
-
-void aprilFools() {
-  scrollText(7, RAINBOW, 0, CRGB(0,0,5));
-  delay(1500);
- for (byte x = 0; x < kMatrixWidth; x++){
-    for (byte y = 0; y < kMatrixHeight; y++){
-      leds[XY(x, y)] = CRGB::Black;
-    }
-  }
-  delay(300);
- leds[XY(3, 4)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(12, 4)] = CHSV(cycleHue, 255, random8(5) * 63);
-  delay(200);
-  leds[XY(3, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(11, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(12, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
-  delay(200);
-  leds[XY(4, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(2, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(13, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(4, 3)] = CHSV(cycleHue, 255, random8(5) * 63);
-  delay(200);
-  leds[XY(4, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(11, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(5, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(13, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
-  delay(200);
-  leds[XY(1, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(3, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(4, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(5, 0)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(10, 1)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(10, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(13, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  leds[XY(14, 2)] = CHSV(cycleHue, 255, random8(5) * 63);
-  delay(500);
-  scrollText(8, NORMAL, CRGB(100, 0, 100), CRGB::Black);
-  delay(1000);
-}
-
 

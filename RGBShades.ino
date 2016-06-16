@@ -91,7 +91,13 @@
 
 // Runs one time at the start of the program (power up or reset)
 void setup() {
-
+const int micReading;
+int micRGB;
+int mic0;
+int mic1;
+int mic2;
+int mic3;
+int mic4;
   // check to see if EEPROM has been used yet
   // if so, load the stored settings
   byte eepromWasWritten = EEPROM.read(0);
@@ -131,8 +137,7 @@ functionList effectList[] = {threeSine,
                              scrollTextFive,
                              scrollTextSix,
                              PizzaTime,
-                             BaseballEyes,
-                             aprilFools
+                             BaseballEyes
                             };
 
 const byte numEffects = (sizeof(effectList)/sizeof(effectList[0]));
