@@ -418,7 +418,6 @@ void micLevels() {
   
   int micReading;
   int micRGB;
-  int micPin;
   int mic0;
   int mic1;
   int mic2;
@@ -428,7 +427,7 @@ void micLevels() {
 
   //CHSV(cycleHue, 255, random8(5) * 63)
   //leds[XY(2, 0)] = CRGB(100,100,100);
-  micReading = analogRead(micPin);
+  micReading = analogRead(5);
   micRGB = map(micReading, 0, 255, 0, 15);
   mic4 = mic3;
   mic3 = mic2;

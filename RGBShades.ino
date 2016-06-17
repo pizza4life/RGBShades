@@ -114,6 +114,7 @@ int mic4;
   FastLED.setBrightness( scale8(currentBrightness, MAXBRIGHTNESS) );
 
   // configure input buttons
+  pinMode(5, INPUT);
   pinMode(MODEBUTTON, INPUT_PULLUP);
   pinMode(BRIGHTNESSBUTTON, INPUT_PULLUP);
 
@@ -137,7 +138,8 @@ functionList effectList[] = {threeSine,
                              scrollTextFive,
                              scrollTextSix,
                              PizzaTime,
-                             BaseballEyes
+                             BaseballEyes,
+                             micLevels
                             };
 
 const byte numEffects = (sizeof(effectList)/sizeof(effectList[0]));
