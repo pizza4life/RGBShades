@@ -1,0 +1,44 @@
+var limit = 100000000000;
+function start() {
+    putBall();
+    putBall();
+    for(var i = 0; i < limit; i++){ //essentialy forever loop
+        loop();
+        if(ballsPresent()){
+            takeBall();
+            if(ballsPresent()){
+                takeBall();
+                i = limit;
+                turnEast();
+            }
+        }
+    }
+
+}
+
+function loop(){
+    if(rightIsClear()){
+        turnRight();
+        move();
+    }else if(frontIsClear()){
+        move();
+    }else if(leftIsClear()){
+        turnLeft();
+        move();
+    }else{
+        turnAround();
+    }
+    
+}
+
+function turnEast(){
+    if(notFacingEast()){
+        if(facingNorth()){
+            turnRight();
+        }else if(facingWest()){
+            turnAround();
+        }else if(facingSouth()){
+            turnLeft();
+        }
+    }
+}
